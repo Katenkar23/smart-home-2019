@@ -1,8 +1,10 @@
 package ru.sbt.mipt.oop;
 
+import java.io.IOException;
+
 public interface SmartHomeStateProvider {
 
     // считываем состояние дома
-    void getState();
+    SmartHome getHomeState() throws IOException;
 
 }
