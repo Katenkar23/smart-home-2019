@@ -34,7 +34,7 @@ public class LightSensorEventHandler implements SensorEventHandler {
             for (Light light : homeRoom.getLights()) {
                 light.setOn(false);
                 SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
-//                                    Application.sendCommand(command);
+                Application.sendCommand(command);
             }
         }
 
