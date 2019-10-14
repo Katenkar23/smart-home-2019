@@ -1,7 +1,7 @@
 package ru.sbt.mipt.oop;
 
 // Интерфейс обработчика сценариев умного дома
-public class ScenarioDriver {
+public class ScenarioController {
 
     // Метод обработки сценария закрытия входной двери холла
     void runCloseHallDoorScenario() {
