@@ -5,17 +5,17 @@ import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
 
 public class LightSensorEventHandler implements SensorEventHandler {
 
-    private final SensorEvent event;
+    //    private final SensorEvent event;
     private final SmartHome smartHome;
 
-    public LightSensorEventHandler(SensorEvent event, SmartHome smarthome) {
-        this.event = event;
+    public LightSensorEventHandler(SmartHome smarthome) {
+//        this.event = event;
         this.smartHome = smarthome;
     }
 
     // событие от источника света
     @Override
-    public void handle() {
+    public void handle(SensorEvent event) {
         if (event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF) {
             for (Room room : smartHome.getRooms()) {
                 for (Light light : room.getLights()) {

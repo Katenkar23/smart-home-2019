@@ -2,8 +2,6 @@ package ru.sbt.mipt.oop;
 
 import java.io.IOException;
 
-import static ru.sbt.mipt.oop.SensorEventType.*;
-
 public class Application {
 
     public static void main(String... args) throws IOException {
@@ -12,20 +10,19 @@ public class Application {
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
         SmartHome smartHome = smartHomeStateProvider.getHomeState();
 
+        LightSensorEventHandler lightHandler = new LightSensorEventHandler(smartHome);
+        DoorSensorEventHandler doorHandler = new DoorSensorEventHandler(smartHome);
+
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();
         while (event != null) {
-            System.out.println("Got event: " + event);
-            if (event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF) {
-                // событие от источника света
-                LightSensorEventHandler lightHandler = new LightSensorEventHandler(event, smartHome);
-                lightHandler.handle();
-            }
-            if (event.getType() == DOOR_OPEN || event.getType() == DOOR_CLOSED) {
-                // событие от двери
-                DoorSensorEventHandler doorHandler = new DoorSensorEventHandler(event, smartHome);
-                doorHandler.handle();
-            }
+
+            // событие от источника света
+            lightHandler.handle(event);
+
+            // событие от двери
+            doorHandler.handle(event);
+
             event = getNextSensorEvent();
         }
     }

@@ -5,17 +5,17 @@ import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
 public class DoorSensorEventHandler implements SensorEventHandler {
 
-    private final SensorEvent event;
+    //    private final SensorEvent event;
     private final SmartHome smartHome;
 
-    public DoorSensorEventHandler(SensorEvent event, SmartHome smarthome) {
-        this.event = event;
+    public DoorSensorEventHandler(SmartHome smarthome) {
+//        this.event = event;
         this.smartHome = smarthome;
     }
 
     // событие от двери
     @Override
-    public void handle() {
+    public void handle(SensorEvent event) {
         if (event.getType() == DOOR_OPEN || event.getType() == DOOR_CLOSED) {
             for (Room room : smartHome.getRooms()) {
                 for (Door door : room.getDoors()) {
