@@ -15,10 +15,18 @@ public class JsonSmartHomeStateProvider implements SmartHomeStateProvider {
     }
 
     @Override
-    public SmartHome getHomeState() throws IOException {
+    public SmartHome getHomeState() {
 
-        Gson gson = new Gson();
-        String json = new String(Files.readAllBytes(Paths.get(fileName)));
-        return gson.fromJson(json, SmartHome.class);
+        SmartHome smartH = new SmartHome();
+
+        try {
+            Gson gson = new Gson();
+            String json = new String(Files.readAllBytes(Paths.get(fileName)));
+            smartH = gson.fromJson(json, SmartHome.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return smartH;
     }
 }

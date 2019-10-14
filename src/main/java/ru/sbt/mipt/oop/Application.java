@@ -19,12 +19,12 @@ public class Application {
             if (event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF) {
                 // событие от источника света
                 LightSensorEventHandler lightHandler = new LightSensorEventHandler(event, smartHome);
-                lightHandler.Handle();
+                lightHandler.handle();
             }
             if (event.getType() == DOOR_OPEN || event.getType() == DOOR_CLOSED) {
                 // событие от двери
                 DoorSensorEventHandler doorHandler = new DoorSensorEventHandler(event, smartHome);
-                doorHandler.Handle();
+                doorHandler.handle();
             }
             event = getNextSensorEvent();
         }

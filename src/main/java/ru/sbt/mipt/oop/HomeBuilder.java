@@ -20,7 +20,7 @@ public class HomeBuilder {
                 Arrays.asList(new Door(false, "4")),
                 "hall");
         SmartHome smartHome = new SmartHome(Arrays.asList(kitchen, bathroom, bedroom, hall));
-        JsonHomeExportProvider jsonExportProvider = new JsonHomeExportProvider("output.js", smartHome);
-        jsonExportProvider.Export();
+        JsonHomeWriter jsonExportProvider = new JsonHomeWriter("output.js", smartHome);
+        jsonExportProvider.export();
     }
 }

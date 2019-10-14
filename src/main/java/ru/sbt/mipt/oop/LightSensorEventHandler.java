@@ -13,7 +13,7 @@ public class LightSensorEventHandler implements SensorEventHandler {
     }
 
     @Override
-    public void Handle() {
+    public void handle() {
         for (Room room : smartHome.getRooms()) {
             for (Light light : room.getLights()) {
                 if (light.getId().equals(event.getObjectId())) {
@@ -29,7 +29,7 @@ public class LightSensorEventHandler implements SensorEventHandler {
         }
     }
 
-    public void AllLightOff() {
+    public void allLightOff() {
         for (Room homeRoom : smartHome.getRooms()) {
             for (Light light : homeRoom.getLights()) {
                 light.setOn(false);
@@ -37,6 +37,5 @@ public class LightSensorEventHandler implements SensorEventHandler {
                 Application.sendCommand(command);
             }
         }
-
     }
 }

@@ -9,18 +9,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class JsonHomeExportProvider implements HomeExportProvider {
+public class JsonHomeWriter implements HomeWriter {
 
     private final String file;
     private final SmartHome smartHome;
 
-    public JsonHomeExportProvider(String file, SmartHome smartHome) {
+    public JsonHomeWriter(String file, SmartHome smartHome) {
         this.file = file;
         this.smartHome = smartHome;
     }
 
     @Override
-    public void Export() throws IOException {
+    public void export() {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(smartHome);
@@ -28,6 +28,8 @@ public class JsonHomeExportProvider implements HomeExportProvider {
         Path path = Paths.get(file);
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(jsonString);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

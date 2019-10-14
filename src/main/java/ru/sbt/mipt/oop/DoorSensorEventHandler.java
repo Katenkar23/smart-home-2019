@@ -13,7 +13,7 @@ public class DoorSensorEventHandler implements SensorEventHandler {
     }
 
     @Override
-    public void Handle() {
+    public void handle() {
         for (Room room : smartHome.getRooms()) {
             for (Door door : room.getDoors()) {
                 if (door.getId().equals(event.getObjectId())) {
@@ -27,7 +27,7 @@ public class DoorSensorEventHandler implements SensorEventHandler {
                         // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
                         if (room.getName().equals("hall")) {
                             LightSensorEventHandler lightHandler = new LightSensorEventHandler(event, smartHome);
-                            lightHandler.AllLightOff();
+                            lightHandler.allLightOff();
                         }
                     }
                 }
