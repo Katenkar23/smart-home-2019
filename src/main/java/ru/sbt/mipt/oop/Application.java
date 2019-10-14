@@ -10,18 +10,14 @@ public class Application {
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
         SmartHome smartHome = smartHomeStateProvider.getHomeState();
 
-        LightSensorEventHandler lightHandler = new LightSensorEventHandler(smartHome);
-        DoorSensorEventHandler doorHandler = new DoorSensorEventHandler(smartHome);
+        // экземпляр конфигурационного класса
+        Setup setup = new Setup(smartHome);
 
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();
         while (event != null) {
 
-            // событие от источника света
-            lightHandler.handle(event);
-
-            // событие от двери
-            doorHandler.handle(event);
+            setup.handle(event);
 
             event = getNextSensorEvent();
         }
