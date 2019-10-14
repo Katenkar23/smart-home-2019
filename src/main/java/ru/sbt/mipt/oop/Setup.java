@@ -1,16 +1,15 @@
 package ru.sbt.mipt.oop;
 
 import java.util.ArrayList;
-import java.util.List;
 
 // Класс, содержащий настройки умного дома
 public class Setup {
 
-    private List<SensorEventHandler> sensorHandlers;
+    private ArrayList<SensorEventHandler> sensorHandlers;
 
     public Setup(SmartHome smartHome) {
 
-        List<SensorEventHandler> sensorHandlers = new ArrayList<>();
+        sensorHandlers = new ArrayList<>();
 
         // припоявлении нового обработчика событий, необходимо добавить его сюда
         sensorHandlers.add(new DoorSensorEventHandler(smartHome));
