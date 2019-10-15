@@ -29,7 +29,7 @@ public class DoorSensorEventHandler implements SensorEventHandler {
                             // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
                             if (room.getName().equals("hall")) {
                                 ScenarioController scenarioController = new ScenarioController(smartHome);
-                                scenarioController.runAllLightsOffScenario();
+                                scenarioController.runCloseHallDoorScenario();
                             }
                         }
                     }
