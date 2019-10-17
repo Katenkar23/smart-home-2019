@@ -1,6 +1,6 @@
 package ru.sbt.mipt.oop;
 
-public interface Iterator {
+public interface ActionableIterator {
 
     public Actionable getNext();
 
