@@ -12,5 +12,10 @@ class DoorTest {
 
     @Test
     void testSetOpen() {
+        Door door = new Door(true, "1");
+
+        door.setOpen(true);
+
+        assertEquals(true, true);
     }
 }
