@@ -17,8 +17,8 @@ public class ScenarioController {
 
     // Метод обработки сценария выключения всего света в доме
     public void runAllLightsOffScenario() {
-        for (Room homeRoom : smartHome.getRooms()) {
-            for (Light light : homeRoom.getLights()) {
+        for (Room room : smartHome.getRooms()) {
+            for (Light light : room.getLights()) {
                 light.setOn(false);
                 SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
                 Application.sendCommand(command);

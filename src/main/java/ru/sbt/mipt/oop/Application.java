@@ -17,7 +17,7 @@ public class Application {
         SensorEvent event = getNextSensorEvent();
         while (event != null) {
 
-            setup.handle(event);
+            //setup.handle(event);
 
             smartHome.execute(new Action(event));
 

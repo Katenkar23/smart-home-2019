@@ -28,9 +28,11 @@ public class Door implements Actionable {
             if (this.getId().equals(event.getObjectId())) {
                 if (event.getType() == DOOR_OPEN) {
                     this.setOpen(true);
+                    System.out.println("\tDoor " + this.getId() + " was opened.");
                     //System.out.println("Door " + this.getId() + " in room " + room.getName() + " was opened.");
                 } else {
                     this.setOpen(false);
+                    System.out.println("\tDoor " + this.getId() + " was closed.");
                     //System.out.println("Door " + this.getId() + " in room " + room.getName() + " was closed.");
                 }
             }
