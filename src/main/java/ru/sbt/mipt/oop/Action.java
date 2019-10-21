@@ -2,9 +2,13 @@ package ru.sbt.mipt.oop;
 
 public class Action {
 
-    private final SmartHome smartHome;
+    private SensorEvent event;
 
-    public Action(SmartHome smartHome) {
-        this.smartHome = smartHome;
+    public Action(SensorEvent event) {
+        this.event = event;
+    }
+
+    SensorEvent getEvent() {
+        return event;
     }
 }
