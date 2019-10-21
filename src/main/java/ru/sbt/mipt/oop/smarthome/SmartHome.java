@@ -30,7 +30,7 @@ public class SmartHome implements Actionable {
 
             // если мы получили событие о закрытие двери в холле - это значит, что была закрыта входная дверь.
             // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
-            if (room.getName().equals("hall")) {
+            if (room.getName().equals("hall") && action.getEvent().getType().equals(SensorEventType.DOOR_CLOSED)) {
                 ScenarioController scenarioController = new ScenarioController(this);
                 scenarioController.runCloseHallDoorScenario();
             }
