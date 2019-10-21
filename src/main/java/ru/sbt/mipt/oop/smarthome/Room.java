@@ -2,7 +2,7 @@ package ru.sbt.mipt.oop.smarthome;
 
 import java.util.Collection;
 
-public class Room implements Actionable{
+public class Room implements Actionable {
 
     private Collection<Light> lights;
     private Collection<Door> doors;
@@ -28,6 +28,12 @@ public class Room implements Actionable{
 
     @Override
     public void execute(Action action) {
+        for (Door door : doors) {
+            door.execute(action);
+        }
 
+        for (Light light: lights) {
+            light.execute(action);
+        }
     }
 }
