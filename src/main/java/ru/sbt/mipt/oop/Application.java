@@ -19,6 +19,8 @@ public class Application {
 
             setup.handle(event);
 
+            smartHome.execute(new Action(event));
+
             event = getNextSensorEvent();
         }
     }
