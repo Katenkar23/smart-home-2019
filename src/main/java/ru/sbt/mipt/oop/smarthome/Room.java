@@ -28,6 +28,8 @@ public class Room implements Actionable {
 
     @Override
     public void execute(Action action) {
+        System.out.println("In room : " + this.getName());
+
         for (Door door : doors) {
             door.execute(action);
         }
