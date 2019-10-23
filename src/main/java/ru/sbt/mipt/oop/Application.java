@@ -1,9 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import ru.sbt.mipt.oop.event.controllers.EventController;
-import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
-import ru.sbt.mipt.oop.smarthome.SmartHome;
-
 import java.io.IOException;
 
 public class Application {
@@ -17,5 +13,9 @@ public class Application {
         EventController eventController = new EventController(smartHome);
 
         eventController.controlEvent();
+    }
+
+    public static void sendCommand(SensorCommand command) {
+        System.out.println("Pretent we're sending command " + command);
     }
 }
