@@ -1,8 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import static ru.sbt.mipt.oop.SensorEventType.DOOR_CLOSED;
-import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
-
 public class DoorCommandController implements HomeCommandController {
 
     private final SmartHome smartHome;
