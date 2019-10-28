@@ -14,8 +14,4 @@ public class Application {
 
         eventController.controlEvent();
     }
-
-    public static void sendCommand(SensorCommand command) {
-        System.out.println("Pretent we're sending command " + command);
-    }
 }

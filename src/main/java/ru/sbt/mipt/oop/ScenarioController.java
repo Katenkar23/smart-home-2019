@@ -21,7 +21,7 @@ public class ScenarioController {
             for (Light light : room.getLights()) {
                 light.setOn(false);
                 SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
-                Application.sendCommand(command);
+                HomeCommandController.sendCommand(command);
             }
         }
     }
