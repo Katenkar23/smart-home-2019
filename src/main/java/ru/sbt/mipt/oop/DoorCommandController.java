@@ -23,17 +23,15 @@ public class DoorCommandController implements HomeCommandController {
                             // если мы получили событие о закрытие двери в холле - это значит, что была закрыта входная дверь.
                             // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
                             if (room.getName().equals("hall")) {
-                                hallDoorAction();
+
+                                HallDoorCommandController hallDoorController = new HallDoorCommandController(smartHome);
+
+                                hallDoorController.action(command);
                             }
                         }
                     }
                 }
             }
         }
-    }
-
-    public void hallDoorAction() {
-        ScenarioController scenarioController = new ScenarioController(smartHome);
-        scenarioController.runCloseHallDoorScenario();
     }
 }
