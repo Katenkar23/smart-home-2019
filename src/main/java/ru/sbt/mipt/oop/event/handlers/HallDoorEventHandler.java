@@ -18,6 +18,6 @@ public class HallDoorEventHandler implements SensorEventHandler {
 
         ScenarioController scenarioController = new ScenarioController(smartHome);
 
-        scenarioController.runCloseHallDoorScenario();
+        scenarioController.runAllLightsOffScenario();
     }
 }
