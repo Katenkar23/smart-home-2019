@@ -1,8 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import static ru.sbt.mipt.oop.SensorEventType.DOOR_CLOSED;
-import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
-
 public class HallDoorEventHandler implements SensorEventHandler {
 
     private final SmartHome smartHome;
@@ -14,12 +11,9 @@ public class HallDoorEventHandler implements SensorEventHandler {
 
     @Override
     public void handle(SensorEvent event) {
-        if (event.getType() == DOOR_OPEN || event.getType() == DOOR_CLOSED) {
-            SensorCommand command = new SensorCommand(event);
 
-            HallDoorCommandController hallDoorController = new HallDoorCommandController(smartHome);
+        ScenarioController scenarioController = new ScenarioController(smartHome);
 
-            hallDoorController.action(command);
-        }
+        scenarioController.runCloseHallDoorScenario();
     }
 }
