@@ -1,4 +1,6 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.event.controllers;
+
+import ru.sbt.mipt.oop.event.SensorCommand;
 
 public interface HomeCommandController {
 

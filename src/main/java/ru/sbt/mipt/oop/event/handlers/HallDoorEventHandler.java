@@ -1,4 +1,8 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.event.handlers;
+
+import ru.sbt.mipt.oop.scenarios.ScenarioController;
+import ru.sbt.mipt.oop.smarthome.SmartHome;
+import ru.sbt.mipt.oop.event.SensorEvent;
 
 public class HallDoorEventHandler implements SensorEventHandler {
 

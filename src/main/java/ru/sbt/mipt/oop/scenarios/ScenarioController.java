@@ -1,4 +1,11 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.scenarios;
+
+import ru.sbt.mipt.oop.event.CommandType;
+import ru.sbt.mipt.oop.event.SensorCommand;
+import ru.sbt.mipt.oop.event.controllers.HomeCommandController;
+import ru.sbt.mipt.oop.smarthome.Light;
+import ru.sbt.mipt.oop.smarthome.Room;
+import ru.sbt.mipt.oop.smarthome.SmartHome;
 
 // Интерфейс обработчика сценариев умного дома
 public class ScenarioController {

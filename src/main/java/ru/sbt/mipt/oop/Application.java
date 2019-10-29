@@ -1,5 +1,9 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.event.controllers.EventController;
+import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
+import ru.sbt.mipt.oop.smarthome.SmartHome;
+
 import java.io.IOException;
 
 public class Application {
