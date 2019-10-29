@@ -1,4 +1,9 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.event.controllers;
+
+import ru.sbt.mipt.oop.Setup;
+import ru.sbt.mipt.oop.smarthome.SmartHome;
+import ru.sbt.mipt.oop.event.EventGenerator;
+import ru.sbt.mipt.oop.event.SensorEvent;
 
 public class EventController {
 

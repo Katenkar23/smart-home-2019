@@ -1,5 +1,11 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.event.SensorEvent;
+import ru.sbt.mipt.oop.event.handlers.DoorEventHandler;
+import ru.sbt.mipt.oop.event.handlers.LightEventHandler;
+import ru.sbt.mipt.oop.event.handlers.SensorEventHandler;
+import ru.sbt.mipt.oop.smarthome.SmartHome;
+
 import java.util.ArrayList;
 
 // Класс, содержащий настройки умного дома
