@@ -11,9 +11,9 @@ public class Setup {
 
         sensorHandlers = new ArrayList<>();
 
-        // при появлении нового обработчика событий, необходимо добавить его сюда
-        sensorHandlers.add(new DoorSensorEventHandler(smartHome));
-        sensorHandlers.add(new LightSensorEventHandler(smartHome));
+        // припоявлении нового обработчика событий, необходимо добавить его сюда
+        sensorHandlers.add(new DoorEventHandler(smartHome));
+        sensorHandlers.add(new LightEventHandler(smartHome));
     }
 
     public void handle(SensorEvent event) {

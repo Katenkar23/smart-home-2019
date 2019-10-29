@@ -2,12 +2,12 @@ package ru.sbt.mipt.oop;
 
 import static ru.sbt.mipt.oop.SensorEventType.*;
 
-public class LightSensorEventHandler implements SensorEventHandler {
+public class LightEventHandler implements SensorEventHandler {
 
     //    private final SensorEvent event;
     private final SmartHome smartHome;
 
-    public LightSensorEventHandler(SmartHome smarthome) {
+    public LightEventHandler(SmartHome smarthome) {
 //        this.event = event;
         this.smartHome = smarthome;
     }
