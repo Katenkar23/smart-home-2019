@@ -17,11 +17,6 @@ public class ScenarioController {
         this.smartHome = smartHome;
     }
 
-    // Метод обработки сценария закрытия входной двери холла
-    public void runCloseHallDoorScenario() {
-        runAllLightsOffScenario();
-    }
-
     // Метод обработки сценария выключения всего света в доме
     public void runAllLightsOffScenario() {
         for (Room homeRoom : smartHome.getRooms()) {
