@@ -3,6 +3,7 @@ package ru.sbt.mipt.oop.smarthome;
 import ru.sbt.mipt.oop.Action;
 import ru.sbt.mipt.oop.Actionable;
 import ru.sbt.mipt.oop.event.*;
+import ru.sbt.mipt.oop.event.handlers.DoorEventHandler;
 
 import static ru.sbt.mipt.oop.event.SensorEventType.*;
 

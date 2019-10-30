@@ -31,6 +31,7 @@ public class SmartHome implements Actionable {
     @Override
     public void execute(Action action) {
         for (Room room : rooms) {
+
             room.execute(action);
 
             // если мы получили событие о закрытие двери в холле - это значит, что была закрыта входная дверь.
