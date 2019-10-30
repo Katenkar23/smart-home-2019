@@ -1,6 +1,10 @@
 package ru.sbt.mipt.oop.smarthome;
 
-import static ru.sbt.mipt.oop.SensorEventType.*;
+import ru.sbt.mipt.oop.Action;
+import ru.sbt.mipt.oop.Actionable;
+import ru.sbt.mipt.oop.event.*;
+
+import static ru.sbt.mipt.oop.event.SensorEventType.*;
 
 public class Door implements Actionable {
 

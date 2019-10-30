@@ -1,6 +1,9 @@
 package ru.sbt.mipt.oop.smarthome;
 
 import java.util.Collection;
+import ru.sbt.mipt.oop.Action;
+import ru.sbt.mipt.oop.Actionable;
+import ru.sbt.mipt.oop.event.*;
 
 public class Room implements Actionable {
 

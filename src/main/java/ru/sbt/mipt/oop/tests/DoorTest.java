@@ -1,6 +1,7 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.tests;
 
 import org.junit.jupiter.api.Test;
+import ru.sbt.mipt.oop.smarthome.Door;
 
 import static org.junit.jupiter.api.Assertions.*;
 

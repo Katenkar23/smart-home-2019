@@ -1,5 +1,10 @@
 package ru.sbt.mipt.oop.smarthome;
 
+import ru.sbt.mipt.oop.Action;
+import ru.sbt.mipt.oop.Actionable;
+import ru.sbt.mipt.oop.event.*;
+import ru.sbt.mipt.oop.scenarios.ScenarioController;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -32,7 +37,7 @@ public class SmartHome implements Actionable {
             // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
             if (room.getName().equals("hall") && action.getEvent().getType().equals(SensorEventType.DOOR_CLOSED)) {
                 ScenarioController scenarioController = new ScenarioController(this);
-                scenarioController.runCloseHallDoorScenario();
+                scenarioController.runAllLightsOffScenario();
             }
         }
     }

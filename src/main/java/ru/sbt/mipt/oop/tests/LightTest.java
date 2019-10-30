@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.tests;
 
 import org.junit.jupiter.api.Test;
 
