@@ -30,6 +30,12 @@ public class Room implements Actionable {
 
     @Override
     public void execute(Action action) {
+        for (Door door : getDoors()) {
+            door.execute(action);
+        }
 
+        for (Light light : getLights()) {
+            light.execute(action);
+        }
     }
 }
