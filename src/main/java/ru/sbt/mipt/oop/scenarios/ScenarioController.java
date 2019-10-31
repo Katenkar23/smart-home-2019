@@ -23,6 +23,7 @@ public class ScenarioController {
             for (Light light : room.getLights()) {
                 light.setOn(false);
                 SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
+                System.out.println("Light " + light.getId() + " in room " + homeRoom.getName() + " was turned off by HallDoor.");
                 HomeCommandController.sendCommand(command);
             }
         }
