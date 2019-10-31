@@ -5,7 +5,7 @@ import ru.sbt.mipt.oop.smarthome.SmartHome;
 import ru.sbt.mipt.oop.event.EventGenerator;
 import ru.sbt.mipt.oop.event.SensorEvent;
 
-public class EventHandler {
+public class EventHandler implements SensorEventHandler {
 
     private SmartHome smartHome;
 
@@ -17,13 +17,13 @@ public class EventHandler {
         this.smartHome = smartHome;
     }
 
-    public void controlEvent() {
+    @Override
+    public void handle(SensorEvent event) {
 
         // экземпляр конфигурационного класса
         Setup setup = new Setup(this.getSmartHome());
 
         // начинаем цикл обработки событий
-        SensorEvent event = EventGenerator.getNextSensorEvent();
         while (event != null) {
 
             setup.handle(event);

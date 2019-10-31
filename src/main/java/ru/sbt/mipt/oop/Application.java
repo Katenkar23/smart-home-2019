@@ -1,5 +1,7 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.event.EventGenerator;
+import ru.sbt.mipt.oop.event.SensorEvent;
 import ru.sbt.mipt.oop.event.handlers.EventHandler;
 import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
@@ -16,6 +18,6 @@ public class Application {
 
         EventHandler eventHandler = new EventHandler(smartHome);
 
-        eventHandler.controlEvent();
+        eventHandler.handle(EventGenerator.getNextSensorEvent());
     }
 }
