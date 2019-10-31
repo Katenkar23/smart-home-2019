@@ -1,5 +1,8 @@
 package ru.sbt.mipt.oop.smarthome;
 
+import ru.sbt.mipt.oop.Action;
+import ru.sbt.mipt.oop.Actionable;
+
 import java.util.ArrayList;
 import java.util.Collection;
 

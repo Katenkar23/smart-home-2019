@@ -1,14 +1,7 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.event.SensorEvent;
+
 public class Action {
 
-    private SensorEvent event;
-
-    public Action(SensorEvent event) {
-        this.event = event;
-    }
-
-    SensorEvent getEvent() {
-        return event;
-    }
 }
