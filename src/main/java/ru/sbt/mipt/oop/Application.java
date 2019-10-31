@@ -1,6 +1,6 @@
 package ru.sbt.mipt.oop;
 
-import ru.sbt.mipt.oop.event.controllers.EventController;
+import ru.sbt.mipt.oop.event.handlers.EventHandler;
 import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 
@@ -14,8 +14,8 @@ public class Application {
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
         SmartHome smartHome = smartHomeStateProvider.getHomeState();
 
-        EventController eventController = new EventController(smartHome);
+        EventHandler eventHandler = new EventHandler(smartHome);
 
-        eventController.controlEvent();
+        eventHandler.controlEvent();
     }
 }
