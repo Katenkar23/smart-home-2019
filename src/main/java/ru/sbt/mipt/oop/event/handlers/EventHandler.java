@@ -1,11 +1,11 @@
-package ru.sbt.mipt.oop.event.controllers;
+package ru.sbt.mipt.oop.event.handlers;
 
 import ru.sbt.mipt.oop.Setup;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 import ru.sbt.mipt.oop.event.EventGenerator;
 import ru.sbt.mipt.oop.event.SensorEvent;
 
-public class EventController {
+public class EventHandler {
 
     private SmartHome smartHome;
 
@@ -13,7 +13,7 @@ public class EventController {
         return smartHome;
     }
 
-    public EventController(SmartHome smartHome) {
+    public EventHandler(SmartHome smartHome) {
         this.smartHome = smartHome;
     }
 
