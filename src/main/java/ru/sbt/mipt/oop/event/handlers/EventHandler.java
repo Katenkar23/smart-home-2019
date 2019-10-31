@@ -26,6 +26,8 @@ public class EventHandler implements SensorEventHandler {
         // начинаем цикл обработки событий
         while (event != null) {
 
+            System.out.println("Got new event " + event.toString());
+
             setup.handle(event);
 
             event = EventGenerator.getNextSensorEvent();
