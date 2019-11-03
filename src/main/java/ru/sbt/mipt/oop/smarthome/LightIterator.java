@@ -19,7 +19,7 @@ public class LightIterator implements Iterator<Light> {
     @Override
     public boolean hasNext() {
         if (roomIndex < rooms.size()) {
-            if (lightIndex < rooms.get(roomIndex).getLights().size() - 1) {
+            if (lightIndex < rooms.get(roomIndex).getLights().size()) {
                 return true;
             } else {
                 roomIndex++;
@@ -34,7 +34,7 @@ public class LightIterator implements Iterator<Light> {
     public Light next() {
         if (hasNext()) {
             List<Light> lights = new ArrayList<>(rooms.get(roomIndex).getLights());
-            return lights.get(++lightIndex);
+            return lights.get(lightIndex++);
         }
 
         return null;

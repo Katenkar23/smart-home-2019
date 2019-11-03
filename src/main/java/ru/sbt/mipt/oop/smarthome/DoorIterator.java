@@ -19,7 +19,7 @@ public class DoorIterator implements Iterator<Door> {
     @Override
     public boolean hasNext() {
         if (roomIndex < rooms.size()) {
-            if (doorIndex < rooms.get(roomIndex).getDoors().size() - 1) {
+            if (doorIndex < rooms.get(roomIndex).getDoors().size()) {
                 return true;
             } else {
                 roomIndex++;
@@ -34,7 +34,7 @@ public class DoorIterator implements Iterator<Door> {
     public Door next() {
         if (hasNext()) {
             List<Door> doors = new ArrayList<>(rooms.get(roomIndex).getDoors());
-            return doors.get(++doorIndex);
+            return doors.get(doorIndex++);
         }
 
         return null;
