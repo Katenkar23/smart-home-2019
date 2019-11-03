@@ -15,7 +15,7 @@ public class LightEventHandler implements SensorEventHandler {
     private final SmartHome smartHome;
 
     public LightEventHandler(SmartHome smarthome) {
-//        this.event = event;
+
         this.smartHome = smarthome;
     }
 
