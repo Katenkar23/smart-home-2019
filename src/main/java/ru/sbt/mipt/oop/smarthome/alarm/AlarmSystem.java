@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop.smarthome;
+package ru.sbt.mipt.oop.smarthome.alarm;
 
 import ru.sbt.mipt.oop.Action;
 import ru.sbt.mipt.oop.Actionable;
