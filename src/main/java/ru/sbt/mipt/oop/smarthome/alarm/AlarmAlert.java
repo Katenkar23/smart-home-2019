@@ -1,6 +1,6 @@
 package ru.sbt.mipt.oop.smarthome.alarm;
 
-public class AlarmDeactivated implements AlarmSystemState {
+public class AlarmAlert implements AlarmSystemState {
 
     @Override
     public void activate(int code) {
