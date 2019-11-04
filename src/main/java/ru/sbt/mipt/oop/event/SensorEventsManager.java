@@ -18,7 +18,7 @@ public class SensorEventsManager {
         CCSensorEvent event = getNextSensorEvent();
         while (event != null) {
             for (EventHandler handler : handlers) {
-                handler.handleEvent(event);
+                handler.handle(event);
             }
             event = getNextSensorEvent();
         }
