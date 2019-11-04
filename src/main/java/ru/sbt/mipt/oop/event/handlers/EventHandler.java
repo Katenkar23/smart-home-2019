@@ -1,6 +1,7 @@
 package ru.sbt.mipt.oop.event.handlers;
 
 import ru.sbt.mipt.oop.Setup;
+import ru.sbt.mipt.oop.event.CCSensorEvent;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 import ru.sbt.mipt.oop.event.EventGenerator;
 import ru.sbt.mipt.oop.event.SensorEvent;
@@ -18,7 +19,7 @@ public class EventHandler implements SensorEventHandler {
     }
 
     @Override
-    public void handle(SensorEvent event) {
+    public void handle(CCSensorEvent event) {
 
         // экземпляр конфигурационного класса
         Setup setup = new Setup(this.getSmartHome());
@@ -30,7 +31,7 @@ public class EventHandler implements SensorEventHandler {
 
             setup.handle(event);
 
-            event = EventGenerator.getNextSensorEvent();
+//            event = EventGenerator.getNextSensorEvent();
         }
     }
 }
