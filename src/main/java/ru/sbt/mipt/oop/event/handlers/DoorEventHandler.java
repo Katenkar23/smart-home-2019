@@ -29,7 +29,7 @@ public class DoorEventHandler implements SensorEventHandler {
 
                 Door door = doorIterator.next();
 
-                if (door.equals(event.getObjectId())) {
+                if (door.getId().equals(event.getObjectId())) {
                     if (event.getType() == DOOR_OPEN) {
                         door.setOpen(true);
                         System.out.println("Door " + door.getId() + " in room was opened.");
