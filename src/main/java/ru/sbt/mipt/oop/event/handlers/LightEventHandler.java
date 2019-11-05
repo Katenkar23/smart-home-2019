@@ -30,7 +30,7 @@ public class LightEventHandler implements SensorEventHandler {
 
                 Light light = lightIterator.next();
 
-                if (light.equals(event.getObjectId())) {
+                if (light.getId().equals(event.getObjectId())) {
                     if (event.getType() == LIGHT_ON) {
                         light.setOn(true);
                         System.out.println("Light " + light.getId() + " in room was opened.");
