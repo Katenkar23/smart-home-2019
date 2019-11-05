@@ -22,7 +22,7 @@ class DoorEventHandlerTest {
 
         String doorId = "1";
 
-        Door door = new Door(false, doorId);
+        Door door = new Door(doorId, false);
 
         smartHome.addRoom(new Room(Collections.emptyList(), Arrays.asList(door), "hall"));
 
@@ -46,7 +46,7 @@ class DoorEventHandlerTest {
 
         String doorId = "1";
 
-        Door door = new Door(false, doorId);
+        Door door = new Door(doorId, false);
 
         smartHome.addRoom(new Room(Collections.emptyList(), Arrays.asList(door), "hall"));
 
