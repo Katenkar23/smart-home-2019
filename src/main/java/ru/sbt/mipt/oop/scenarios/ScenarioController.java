@@ -4,6 +4,7 @@ import ru.sbt.mipt.oop.event.CommandType;
 import ru.sbt.mipt.oop.event.SensorCommand;
 import ru.sbt.mipt.oop.event.controllers.HomeCommandController;
 import ru.sbt.mipt.oop.smarthome.Light;
+import ru.sbt.mipt.oop.smarthome.LightIterator;
 import ru.sbt.mipt.oop.smarthome.Room;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 
@@ -19,13 +20,16 @@ public class ScenarioController {
 
     // Метод обработки сценария выключения всего света в доме
     public void runAllLightsOffScenario() {
-        for (Room homeRoom : smartHome.getRooms()) {
-            for (Light light : homeRoom.getLights()) {
-                light.setOn(false);
-                SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
-                System.out.println("Light " + light.getId() + " in room " + homeRoom.getName() + " was turned off by HallDoor.");
-                HomeCommandController.sendCommand(command);
-            }
+
+        LightIterator lightIterator = new LightIterator(smartHome);
+
+        while (lightIterator.hasNext()) {
+
+            Light light = lightIterator.next();
+            light.setOn(false);
+            SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
+            System.out.println("Light " + light.getId() + " was turned off by HallDoor.");
+            HomeCommandController.sendCommand(command);
         }
     }
 }
