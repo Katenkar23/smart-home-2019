@@ -16,7 +16,7 @@ import static ru.sbt.mipt.oop.event.SensorEventType.DOOR_OPEN;
 class DoorEventHandlerTest {
 
     @Test
-    public void testWorkHandlerFalse() throws Exception {
+    public void testWorkHandlerFalse() {
 
         SmartHome smartHome = new SmartHome();
 
