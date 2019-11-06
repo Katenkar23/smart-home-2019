@@ -18,11 +18,13 @@ public class ScenarioController {
 
     // Метод обработки сценария выключения всего света в доме
     public void runAllLightsOffScenario() {
+/*
         while (lightIterator.hasNext()) {
             light.setOn(false);
             SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
             System.out.println("Light " + light.getId() + " was turned off by HallDoor.");
             CommandSender.sendCommand(command);
         }
+*/
     }
 }
