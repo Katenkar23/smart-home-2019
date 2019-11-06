@@ -1,5 +1,7 @@
 package ru.sbt.mipt.oop;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.sbt.mipt.oop.event.EventGenerator;
 import ru.sbt.mipt.oop.event.CCSensorEvent;
 import ru.sbt.mipt.oop.event.SensorEventsManager;
@@ -12,6 +14,8 @@ import java.io.IOException;
 public class Application {
 
     public static void main(String... args) throws IOException {
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
 
         // считываем состояние дома из файла
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
