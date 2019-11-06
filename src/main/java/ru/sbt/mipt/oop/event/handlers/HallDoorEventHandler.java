@@ -20,26 +20,37 @@ public class HallDoorEventHandler implements SensorEventHandler {
     @Override
     public void handle(SensorEvent event) {
         if (event.getType() == DOOR_CLOSED) {
-            for (Room room : smartHome.getRooms()) {
-                if (room.getName().equals("hall")) {
-                    for (Door door : room.getDoors()) {
-                        if (door.getId().equals(event.getObjectId())) {
-                            if (event.getType() == DOOR_CLOSED) {
 
-                                door.setOpen(false);
+            smartHome.execute(actionable -> {
+                if (actionable instanceof Room) {
 
-                                System.out.println("Door " + door.getId() + " in room " + room.getName() + " was closed. HallDoor!");
+                    Room room = (Room) actionable;
 
-                                // если мы получили событие о закрытие двери в холле - это значит, что была закрыта входная дверь.
-                                // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
-                                ScenarioController scenarioController = new ScenarioController(smartHome);
+                    if (room.getName().equals("hall")) {
 
-                                scenarioController.runAllLightsOffScenario();
+                        room.execute(hallActionable -> {
+                            if (actionable instanceof Door) {
+                                Door door = (Door) actionable;
+
+                                if (door.getId().equals(event.getObjectId())) {
+                                    if (event.getType() == DOOR_CLOSED) {
+
+                                        door.setOpen(false);
+
+                                        System.out.println("Door " + door.getId() + " in room " + room.getName() + " was closed. HallDoor!");
+
+                                        // если мы получили событие о закрытие двери в холле - это значит, что была закрыта входная дверь.
+                                        // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
+                                        ScenarioController scenarioController = new ScenarioController(smartHome);
+
+                                        scenarioController.runAllLightsOffScenario();
+                                    }
+                                }
                             }
-                        }
+                        });
                     }
                 }
-            }
+            });
         }
     }
 }
