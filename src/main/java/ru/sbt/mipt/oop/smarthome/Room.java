@@ -30,6 +30,9 @@ public class Room implements Actionable {
 
     @Override
     public void execute(Action action) {
+
+        action.run(this);
+
         for (Door door : getDoors()) {
             door.execute(action);
         }
