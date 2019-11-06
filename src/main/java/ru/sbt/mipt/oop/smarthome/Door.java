@@ -7,7 +7,7 @@ public class Door implements Actionable {
     private final String id;
     private boolean isOpen;
 
-    public Door( String id, boolean isOpen) {
+    public Door(String id, boolean isOpen) {
         this.isOpen = isOpen;
         this.id = id;
     }
@@ -26,6 +26,6 @@ public class Door implements Actionable {
 
     @Override
     public void execute(Action action) {
-
+        action.run(this);
     }
 }
