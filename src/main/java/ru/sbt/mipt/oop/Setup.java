@@ -1,6 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import ru.sbt.mipt.oop.event.CCSensorEvent;
 import ru.sbt.mipt.oop.event.SensorEvent;
 import ru.sbt.mipt.oop.event.handlers.DoorEventHandler;
 import ru.sbt.mipt.oop.event.handlers.HallDoorEventHandler;
@@ -25,10 +24,7 @@ public class Setup {
         sensorHandlers.add(new HallDoorEventHandler(smartHome));
     }
 
-    public void handle(CCSensorEvent event) {
-
-        for (SensorEventHandler eh : sensorHandlers) {
-            eh.handle(event);
-        }
+    public ArrayList<SensorEventHandler> getHandlers() {
+        return sensorHandlers;
     }
 }
