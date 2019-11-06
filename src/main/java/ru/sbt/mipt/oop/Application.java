@@ -16,7 +16,7 @@ public class Application {
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
         SmartHome smartHome = smartHomeStateProvider.getHomeState();
 
-        EventHandler eventHandler = new EventHandler(smartHome);
+        EventHandler eventHandler = new EventHandler(smartHome, new Setup(smartHome).getHandlers());
 
         eventHandler.handle(EventGenerator.getNextSensorEvent());
     }

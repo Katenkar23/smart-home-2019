@@ -5,30 +5,33 @@ import ru.sbt.mipt.oop.smarthome.SmartHome;
 import ru.sbt.mipt.oop.event.EventGenerator;
 import ru.sbt.mipt.oop.event.SensorEvent;
 
+import java.util.ArrayList;
+
 public class EventHandler implements SensorEventHandler {
 
     private SmartHome smartHome;
+    private ArrayList<SensorEventHandler> sensorHandlers;
 
     private SmartHome getSmartHome() {
         return smartHome;
     }
 
-    public EventHandler(SmartHome smartHome) {
+    public EventHandler(SmartHome smartHome, ArrayList<SensorEventHandler> handlers) {
         this.smartHome = smartHome;
+        this.sensorHandlers = handlers;
     }
 
     @Override
     public void handle(SensorEvent event) {
-
-        // экземпляр конфигурационного класса
-        Setup setup = new Setup(this.getSmartHome());
 
         // начинаем цикл обработки событий
         while (event != null) {
 
             System.out.println("Got new event " + event.toString());
 
-            setup.handle(event);
+            for (SensorEventHandler handler : sensorHandlers) {
+                handler.handle(event);
+            }
 
             event = EventGenerator.getNextSensorEvent();
         }

@@ -24,10 +24,7 @@ public class Setup {
         sensorHandlers.add(new HallDoorEventHandler(smartHome));
     }
 
-    public void handle(SensorEvent event) {
-
-        for (SensorEventHandler eh : sensorHandlers) {
-            eh.handle(event);
-        }
+    public ArrayList<SensorEventHandler> getHandlers() {
+        return sensorHandlers;
     }
 }
