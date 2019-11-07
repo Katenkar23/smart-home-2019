@@ -1,8 +1,11 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.smarthome;
+
+import ru.sbt.mipt.oop.Action;
+import ru.sbt.mipt.oop.Actionable;
 
 import java.util.Collection;
 
-public class Room {
+public class Room implements Actionable {
     private Collection<Light> lights;
     private Collection<Door> doors;
     private String name;
@@ -23,5 +26,16 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void execute(Action action) {
+        for (Door door : getDoors()) {
+            door.execute(action);
+        }
+
+        for (Light light : getLights()) {
+            light.execute(action);
+        }
     }
 }
