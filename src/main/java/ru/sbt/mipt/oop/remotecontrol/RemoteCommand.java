@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop.smarthome.remotecontrol;
+package ru.sbt.mipt.oop.remotecontrol;
 
 public interface RemoteCommand {
     void execute();
