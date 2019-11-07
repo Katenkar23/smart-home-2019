@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop.smarthome.remotecontrol;
+package ru.sbt.mipt.oop.remotecontrol;
 
 import rc.RemoteControl;
 import rc.RemoteControlRegistry;
