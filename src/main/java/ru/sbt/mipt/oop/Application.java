@@ -1,23 +1,19 @@
 package ru.sbt.mipt.oop;
 
-import ru.sbt.mipt.oop.event.EventGenerator;
-import ru.sbt.mipt.oop.event.SensorEvent;
-import ru.sbt.mipt.oop.event.handlers.EventHandler;
+import ru.sbt.mipt.oop.event.EventDispatcher;
 import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 
-import java.io.IOException;
-
 public class Application {
 
-    public static void main(String... args) throws IOException {
+    public static void main(String... args) {
 
         // считываем состояние дома из файла
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
         SmartHome smartHome = smartHomeStateProvider.getHomeState();
 
-        EventHandler eventHandler = new EventHandler(smartHome, new Setup(smartHome).getHandlers());
+        EventDispatcher eventDispatcher = new EventDispatcher(smartHome, new Setup(smartHome).getHandlers());
 
-        eventHandler.handle(EventGenerator.getNextSensorEvent());
+        eventDispatcher.dispatch();
     }
 }
