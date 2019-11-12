@@ -1,13 +1,11 @@
-package ru.sbt.mipt.oop.event.handlers;
+package ru.sbt.mipt.oop.event;
 
-import ru.sbt.mipt.oop.Setup;
+import ru.sbt.mipt.oop.event.handlers.SensorEventHandler;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
-import ru.sbt.mipt.oop.event.EventGenerator;
-import ru.sbt.mipt.oop.event.SensorEvent;
 
 import java.util.ArrayList;
 
-public class EventHandler implements SensorEventHandler {
+public class EventDispatcher {
 
     private SmartHome smartHome;
     private ArrayList<SensorEventHandler> sensorHandlers;
@@ -16,13 +14,14 @@ public class EventHandler implements SensorEventHandler {
         return smartHome;
     }
 
-    public EventHandler(SmartHome smartHome, ArrayList<SensorEventHandler> handlers) {
+    public EventDispatcher(SmartHome smartHome, ArrayList<SensorEventHandler> handlers) {
         this.smartHome = smartHome;
         this.sensorHandlers = handlers;
     }
 
-    @Override
-    public void handle(SensorEvent event) {
+    public void dispatch() {
+
+        SensorEvent event = EventGenerator.getNextSensorEvent();
 
         // начинаем цикл обработки событий
         while (event != null) {
