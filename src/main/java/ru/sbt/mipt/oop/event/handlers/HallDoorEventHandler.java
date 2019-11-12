@@ -29,8 +29,9 @@ public class HallDoorEventHandler implements SensorEventHandler {
                     if (room.getName().equals("hall")) {
 
                         room.execute(hallActionable -> {
-                            if (actionable instanceof Door) {
-                                Door door = (Door) actionable;
+                            if (hallActionable instanceof Door) {
+
+                                Door door = (Door) hallActionable;
 
                                 if (door.getId().equals(event.getObjectId())) {
                                     if (event.getType() == DOOR_CLOSED) {

@@ -27,10 +27,10 @@ public class LightEventHandler implements SensorEventHandler {
                     if (light.getId().equals(event.getObjectId())) {
                         if (event.getType() == LIGHT_ON) {
                             light.setOn(true);
-                            System.out.println("Light " + light.getId() + " in room was opened.");
+                            System.out.println("Light " + light.getId() + " in room was on.");
                         } else {
                             light.setOn(false);
-                            System.out.println("Light " + light.getId() + " in room was closed.");
+                            System.out.println("Light " + light.getId() + " in room was off.");
                         }
                     }
                 }
