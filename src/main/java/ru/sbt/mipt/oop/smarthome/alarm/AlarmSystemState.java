@@ -2,9 +2,9 @@ package ru.sbt.mipt.oop.smarthome.alarm;
 
 public interface AlarmSystemState {
 
-    void activate(int code);
+    void activate(String code);
 
-    void deactivate(int code);
+    void deactivate(String code);
 
     void alert();
 }
