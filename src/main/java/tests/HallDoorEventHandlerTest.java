@@ -1,7 +1,8 @@
-package ru.sbt.mipt.oop.event.handlers;
+package tests;
 
 import org.junit.jupiter.api.Test;
 import ru.sbt.mipt.oop.event.SensorEvent;
+import ru.sbt.mipt.oop.event.handlers.HallDoorEventHandler;
 import ru.sbt.mipt.oop.smarthome.Door;
 import ru.sbt.mipt.oop.smarthome.Light;
 import ru.sbt.mipt.oop.smarthome.Room;
