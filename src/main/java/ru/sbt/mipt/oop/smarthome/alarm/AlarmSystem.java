@@ -23,6 +23,10 @@ public class AlarmSystem implements Actionable, AlarmSystemState {
         return this.code.equals(code);
     }
 
+    public String getId() {
+        return id;
+    }
+
     public AlarmSystemState getAlarmState() {
         return alarmState;
     }
