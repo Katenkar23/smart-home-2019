@@ -5,11 +5,14 @@ import ru.sbt.mipt.oop.Actionable;
 
 public class AlarmSystem implements Actionable, AlarmSystemState {
 
+    private final String id;
     private AlarmSystemState alarmState;
     private String code;
 
-    public AlarmSystem(String code) {
+    public AlarmSystem(String id, String code) {
+        this.id = id;
         this.code = code;
+        alarmState = new AlarmDeactivated(this);
     }
 
     public void setCode(String code) {
