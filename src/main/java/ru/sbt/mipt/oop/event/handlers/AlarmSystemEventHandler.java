@@ -15,7 +15,7 @@ public class AlarmSystemEventHandler implements SensorEventHandler {
         this.smartHome = smarthome;
     }
 
-    // событие от источника света
+    // событие от сигнализации
     @Override
     public void handle(SensorEvent event) {
         if (event.getType() == ALARM_ACTIVATE || event.getType() == ALARM_DEACTIVATE) {
