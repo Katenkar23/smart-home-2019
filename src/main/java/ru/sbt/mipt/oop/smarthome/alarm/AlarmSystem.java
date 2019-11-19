@@ -6,10 +6,18 @@ import ru.sbt.mipt.oop.Actionable;
 public class AlarmSystem implements Actionable, AlarmSystemState {
 
     private AlarmSystemState alarmState;
-    private final String code;
+    private String code;
 
     public AlarmSystem(String code) {
         this.code = code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public boolean verifyCode(String code) {
+        return this.code.equals(code);
     }
 
     public AlarmSystemState getAlarmState() {

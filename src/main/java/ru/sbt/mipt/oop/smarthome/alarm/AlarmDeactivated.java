@@ -19,6 +19,6 @@ public class AlarmDeactivated implements AlarmSystemState {
 
     @Override
     public void alert() {
-        alarm.setAlarmState(new AlarmAlert());
+        alarm.setAlarmState(new AlarmAlert(alarm));
     }
 }
