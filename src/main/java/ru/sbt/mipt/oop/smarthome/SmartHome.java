@@ -13,6 +13,7 @@ public class SmartHome implements Actionable {
     AlarmSystem alarm;
 
     public SmartHome() {
+        // жёстко добавлена сигнализация
         alarm = new AlarmSystem("1", "1234");
         rooms = new ArrayList<>();
     }
