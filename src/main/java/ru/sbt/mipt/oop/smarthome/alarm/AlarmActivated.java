@@ -17,7 +17,7 @@ public class AlarmActivated implements AlarmSystemState {
     @Override
     public void deactivate(String code) {
         if (this.code.equals(code)) {
-            alarm.setAlarmState(new AlarmDeactivated());
+            alarm.setAlarmState(new AlarmDeactivated(alarm));
         } else {
             alarm.setAlarmState(new AlarmAlert());
         }
