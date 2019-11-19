@@ -1,10 +1,7 @@
 package ru.sbt.mipt.oop;
 
 import ru.sbt.mipt.oop.event.SensorEvent;
-import ru.sbt.mipt.oop.event.handlers.DoorEventHandler;
-import ru.sbt.mipt.oop.event.handlers.HallDoorEventHandler;
-import ru.sbt.mipt.oop.event.handlers.LightEventHandler;
-import ru.sbt.mipt.oop.event.handlers.SensorEventHandler;
+import ru.sbt.mipt.oop.event.handlers.*;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 
 import java.util.ArrayList;
@@ -19,6 +16,7 @@ public class Setup {
         sensorHandlers = new ArrayList<>();
 
         // припоявлении нового обработчика событий, необходимо добавить его сюда
+        sensorHandlers.add(new AlarmSystemEventHandler(smartHome));
         sensorHandlers.add(new DoorEventHandler(smartHome));
         sensorHandlers.add(new LightEventHandler(smartHome));
         sensorHandlers.add(new HallDoorEventHandler(smartHome));
