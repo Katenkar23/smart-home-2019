@@ -1,6 +1,5 @@
 package ru.sbt.mipt.oop.event.handlers;
 
-import ru.sbt.mipt.oop.event.CCSensorEvent;
 import ru.sbt.mipt.oop.event.SensorEvent;
 
 // Обработчик событий сенсоров

@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop.event;
+package ru.sbt.mipt.oop.event.manager;
 
 import java.util.ArrayList;
 import java.util.Collection;
