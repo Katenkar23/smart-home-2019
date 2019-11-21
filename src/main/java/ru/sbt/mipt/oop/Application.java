@@ -1,6 +1,7 @@
 package ru.sbt.mipt.oop;
 
-import ru.sbt.mipt.oop.event.EventDispatcher;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.sbt.mipt.oop.event.handlers.CCEventHandlerAdapter;
 import ru.sbt.mipt.oop.event.manager.SensorEventsManager;
 import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
@@ -8,14 +9,12 @@ import ru.sbt.mipt.oop.smarthome.SmartHome;
 
 public class Application {
 
+//    private static final Logger logger = LogManager.getLogger(Starter.class);
+
     public static void main(String... args) {
 
-        // считываем состояние дома из файла
-        JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
-        SmartHome smartHome = smartHomeStateProvider.getHomeState();
+        ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
 
-        SensorEventsManager sensorEventsManager = new SensorEventsManager();
-        sensorEventsManager.registerEventHandler(new CCEventHandlerAdapter(smartHome));
-        sensorEventsManager.start();
+        SensorEventsManager sensorEventsManager = context.getBean(SensorEventsManager.class);
     }
 }
