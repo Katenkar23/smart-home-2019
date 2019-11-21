@@ -9,7 +9,7 @@ import ru.sbt.mipt.oop.smarthome.SmartHome;
 // Интерфейс обработчика сценариев умного дома
 public class ScenarioController {
 
-    private static SmartHome smartHome;
+    private final SmartHome smartHome;
 
     public ScenarioController(SmartHome smartHome) {
 
