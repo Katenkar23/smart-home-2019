@@ -1,23 +1,27 @@
 package ru.sbt.mipt.oop.event.handlers;
 
+import ru.sbt.mipt.oop.Setup;
 import ru.sbt.mipt.oop.event.SensorEvent;
 import ru.sbt.mipt.oop.event.SensorEventType;
 import ru.sbt.mipt.oop.event.manager.CCSensorEvent;
 import ru.sbt.mipt.oop.event.manager.EventHandler;
+import ru.sbt.mipt.oop.smarthome.SmartHome;
 
 public class CCEventHandlerAdapter implements EventHandler {
 
-    private final SensorEventHandler adaptee;
+    private final SmartHome smartHome;
 
-    public CCEventHandlerAdapter(SensorEventHandler adaptee) {
-        this.adaptee = adaptee;
+    public CCEventHandlerAdapter(SmartHome smartHome) {
+        this.smartHome = smartHome;
     }
 
     @Override
     public void handleEvent(CCSensorEvent event) {
         SensorEvent sensorEvent = adaptSensorEvent(event);
+
         if (sensorEvent != null){
-            adaptee.handle(sensorEvent);
+            for (SensorEventHandler handler : new Setup(smartHome).getHandlers())
+            handler.handle(sensorEvent);
         }
     }
 

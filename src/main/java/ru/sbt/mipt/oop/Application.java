@@ -1,6 +1,8 @@
 package ru.sbt.mipt.oop;
 
 import ru.sbt.mipt.oop.event.EventDispatcher;
+import ru.sbt.mipt.oop.event.handlers.CCEventHandlerAdapter;
+import ru.sbt.mipt.oop.event.manager.SensorEventsManager;
 import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 
@@ -12,8 +14,8 @@ public class Application {
         JsonSmartHomeStateProvider smartHomeStateProvider = new JsonSmartHomeStateProvider("smart-home-1.js");
         SmartHome smartHome = smartHomeStateProvider.getHomeState();
 
-        EventDispatcher eventDispatcher = new EventDispatcher(smartHome, new Setup(smartHome).getHandlers());
-
-        eventDispatcher.dispatch();
+        SensorEventsManager sensorEventsManager = new SensorEventsManager();
+        sensorEventsManager.registerEventHandler(new CCEventHandlerAdapter(smartHome));
+        sensorEventsManager.start();
     }
 }
