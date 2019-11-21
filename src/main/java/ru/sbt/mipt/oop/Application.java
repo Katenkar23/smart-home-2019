@@ -13,7 +13,7 @@ public class Application {
 
     public static void main(String... args) {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(SmartHomeConfiguration.class);
 
         SensorEventsManager sensorEventsManager = context.getBean(SensorEventsManager.class);
     }
