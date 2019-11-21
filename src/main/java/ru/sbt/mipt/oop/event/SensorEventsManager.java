@@ -1,7 +1,5 @@
 package ru.sbt.mipt.oop.event;
 
-import ru.sbt.mipt.oop.event.handlers.EventHandler;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -18,7 +16,7 @@ public class SensorEventsManager {
         CCSensorEvent event = getNextSensorEvent();
         while (event != null) {
             for (EventHandler handler : handlers) {
-                handler.handle(event);
+                handler.handleEvent(event);
             }
             event = getNextSensorEvent();
         }

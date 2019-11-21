@@ -6,5 +6,5 @@ import ru.sbt.mipt.oop.event.SensorEvent;
 // Обработчик событий сенсоров
 public interface SensorEventHandler {
 
-    void handle(CCSensorEvent event);
+    void handle(SensorEvent event);
 }
