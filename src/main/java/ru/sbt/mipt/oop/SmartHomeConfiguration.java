@@ -30,6 +30,6 @@ public class SmartHomeConfiguration {
     SensorEventsManager sensorEventsManager() {
         SensorEventsManager seManager = new SensorEventsManager();
         seManager.registerEventHandler(ccEventHandlerAdapter());
-        return new SensorEventsManager();
+        return seManager;
     }
 }
