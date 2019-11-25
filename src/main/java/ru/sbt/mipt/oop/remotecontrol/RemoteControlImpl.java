@@ -18,6 +18,7 @@ public class RemoteControlImpl implements RemoteControl {
 
     @Override
     public void onButtonPressed(String buttonCode, String rcId) {
+
         RemoteCommand command = buttonsCommand.get(buttonCode);
         command.execute();
     }
