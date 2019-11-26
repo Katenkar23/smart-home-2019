@@ -15,7 +15,7 @@ public class Setup {
 
         sensorHandlers = new ArrayList<>();
 
-        // припоявлении нового обработчика событий, необходимо добавить его сюда
+        // при появлении нового обработчика событий, необходимо добавить его сюда
         sensorHandlers.add(new AlarmSystemEventHandler(smartHome));
         sensorHandlers.add(new AlarmSystemDecorator(new DoorEventHandler(smartHome), smartHome.getAlarm()));
         sensorHandlers.add(new AlarmSystemDecorator(new LightEventHandler(smartHome), smartHome.getAlarm()));
