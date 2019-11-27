@@ -6,13 +6,16 @@ import rc.RemoteControlRegistry;
 import java.util.HashMap;
 
 public class RemoteControlImpl implements RemoteControl {
+
     HashMap<String, RemoteCommand> buttonsCommand;
 
     RemoteControlImpl(RemoteControlRegistry remoteControlRegistry) {
+
         this.buttonsCommand = new HashMap<>();
     }
 
     public void addCommand(String button, RemoteCommand command) {
+
         buttonsCommand.put(button, command);
     }
 

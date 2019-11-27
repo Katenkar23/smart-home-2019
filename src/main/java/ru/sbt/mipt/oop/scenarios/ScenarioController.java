@@ -70,8 +70,8 @@ public class ScenarioController {
         });
     }
 
-    // Метод обработки сценария выключения света в коридоре
-    public void runTurnOffHallLightScenario() {
+    // Метод обработки сценария включения света в коридоре
+    public void runHallLightOnScenario() {
 
         smartHome.execute(actionable -> {
             if (actionable instanceof Room) {
@@ -80,9 +80,9 @@ public class ScenarioController {
                     room.execute(hallActionable -> {
                         if (hallActionable instanceof Light) {
                             Light light = (Light) hallActionable;
-                            light.setOn(false);
-                            SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
-                            System.out.println("Light " + light.getId() + " was turned off by Scenario.");
+                            light.setOn(true);
+                            SensorCommand command = new SensorCommand(CommandType.LIGHT_ON, light.getId());
+                            System.out.println("Light " + light.getId() + " was turned on by Scenario.");
                             CommandSender.sendCommand(command);
                         }
                     });
