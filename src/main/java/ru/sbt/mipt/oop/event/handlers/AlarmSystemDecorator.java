@@ -6,13 +6,16 @@ import ru.sbt.mipt.oop.smarthome.alarm.AlarmAlert;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmDeactivated;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
 
-public class AlarmSystemDecorator implements SensorEventHandler {
+import java.util.List;
 
-    private final SensorEventHandler delegate;
+import static ru.sbt.mipt.oop.event.SensorEventType.ALARM_DEACTIVATE;
+
+public class AlarmSystemDecorator implements SensorEventHandler {
+    private final List<SensorEventHandler> delegates;
     private final AlarmSystem alarm;
 
-    public AlarmSystemDecorator(SensorEventHandler delegate, AlarmSystem alarm) {
-        this.delegate = delegate;
+    public AlarmSystemDecorator(List<SensorEventHandler> delegates, AlarmSystem alarm) {
+        this.delegates = delegates;
         this.alarm = alarm;
     }
 
@@ -20,12 +23,23 @@ public class AlarmSystemDecorator implements SensorEventHandler {
     public void handle(SensorEvent event) {
 
         if (alarm.getAlarmState() instanceof AlarmDeactivated) {
-            delegate.handle(event);
+            for (SensorEventHandler delegate : delegates)
+                delegate.handle(event);
         } else if (alarm.getAlarmState() instanceof AlarmActivated) {
-            alarm.alert();
-            sendSMS(event);
+            if (event.getType() == ALARM_DEACTIVATE) {
+                for (SensorEventHandler delegate : delegates)
+                    delegate.handle(event);
+            } else {
+                alarm.alert();
+                sendSMS(event);
+            }
         } else if (alarm.getAlarmState() instanceof AlarmAlert) {
-            sendSMS(event);
+            if (event.getType() == ALARM_DEACTIVATE) {
+                for (SensorEventHandler delegate : delegates)
+                    delegate.handle(event);
+            } else {
+                sendSMS(event);
+            }
         }
     }
 

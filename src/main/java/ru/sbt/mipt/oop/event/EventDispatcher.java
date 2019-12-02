@@ -1,5 +1,6 @@
 package ru.sbt.mipt.oop.event;
 
+import ru.sbt.mipt.oop.event.handlers.AlarmSystemDecorator;
 import ru.sbt.mipt.oop.event.handlers.SensorEventHandler;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 
@@ -28,9 +29,7 @@ public class EventDispatcher {
 
             System.out.println("Got new event " + event.toString());
 
-            for (SensorEventHandler handler : sensorHandlers) {
-                handler.handle(event);
-            }
+            new AlarmSystemDecorator(sensorHandlers, smartHome.getAlarm()).handle(event);
 
             event = EventGenerator.getNextSensorEvent();
         }
