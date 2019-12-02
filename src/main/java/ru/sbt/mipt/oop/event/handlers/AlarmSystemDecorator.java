@@ -26,18 +26,12 @@ public class AlarmSystemDecorator implements SensorEventHandler {
         } else if (alarm.getAlarmState() instanceof AlarmActivated) {
             alarm.alert();
             sendSMS(event);
-            delegate.handle(event);
         } else if (alarm.getAlarmState() instanceof AlarmAlert) {
             sendSMS(event);
         }
     }
 
     private void sendSMS(SensorEvent event) {
-        if ((event.getType() == DOOR_OPEN || event.getType() == DOOR_CLOSED) && delegate instanceof DoorEventHandler) {
-            System.out.println("Sending sms " + event.toString());
-        }
-        if ((event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF) && delegate instanceof LightEventHandler) {
-            System.out.println("Sending sms " + event.toString());
-        }
+        System.out.println("Sending sms " + event.toString());
     }
 }
