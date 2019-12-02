@@ -6,8 +6,6 @@ import ru.sbt.mipt.oop.smarthome.alarm.AlarmAlert;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmDeactivated;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
 
-import static ru.sbt.mipt.oop.event.SensorEventType.*;
-
 public class AlarmSystemDecorator implements SensorEventHandler {
 
     private final SensorEventHandler delegate;
