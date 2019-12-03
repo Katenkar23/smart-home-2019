@@ -20,8 +20,11 @@ public class RemoteControlImpl implements RemoteControl {
 
     @Override
     public void onButtonPressed(String buttonCode, String rcId) {
-
-        RemoteCommand command = buttonsCommand.get(buttonCode);
-        command.execute();
+        try {
+            RemoteCommand command = buttonsCommand.get(buttonCode);
+            command.execute();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 }
