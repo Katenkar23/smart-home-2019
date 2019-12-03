@@ -53,8 +53,8 @@ public class SmartHomeConfiguration {
     }
 
     @Bean
-    RemoteControlImpl remoteControl(){
-        RemoteControlImpl rc =new RemoteControlImpl();
+    RemoteControlImpl remoteControl() {
+        RemoteControlImpl rc = new RemoteControlImpl();
 
         rc.addCommand("A", new RcAllLightsOn(smartHome()));
         rc.addCommand("B", new RcAllLightsOff(smartHome()));
@@ -67,7 +67,7 @@ public class SmartHomeConfiguration {
     }
 
     @Bean
-    RemoteControlRegistry remoteControlRegistry(){
+    RemoteControlRegistry remoteControlRegistry() {
         RemoteControlRegistry rcRegistry = new RemoteControlRegistry();
 
         rcRegistry.registerRemoteControl(remoteControl(), "rc001");
