@@ -22,11 +22,6 @@ public class CCEventHandlerAdapter implements EventHandler {
         setEventMap();
     }
 
-    public CCEventHandlerAdapter(Collection<SensorEventHandler> handlers, HashMap<String, SensorEventType> eventMap) {
-        this.handlers = handlers;
-        this.eventMap = eventMap;
-    }
-
     @Override
     public void handleEvent(CCSensorEvent event) {
         SensorEvent sensorEvent = adaptSensorEvent(event);
@@ -48,9 +43,6 @@ public class CCEventHandlerAdapter implements EventHandler {
     }
 
     private SensorEvent adaptSensorEvent(CCSensorEvent event) {
-
-        //"LightIsOn", "LightIsOff", "DoorIsOpen", "DoorIsClosed", "DoorIsLocked", "DoorIsUnlocked"
-
         if (eventMap.get(event.getEventType()) != null) {
             return new SensorEvent(eventMap.get(event.getEventType()), event.getObjectId());
         }
