@@ -9,7 +9,7 @@ public class RemoteControlImpl implements RemoteControl {
 
     HashMap<String, RemoteCommand> buttonsCommand;
 
-    RemoteControlImpl() {
+    public RemoteControlImpl() {
 
         this.buttonsCommand = new HashMap<>();
     }

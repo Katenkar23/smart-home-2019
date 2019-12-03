@@ -2,8 +2,10 @@ package ru.sbt.mipt.oop;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import rc.RemoteControlRegistry;
 import ru.sbt.mipt.oop.event.handlers.*;
 import ru.sbt.mipt.oop.event.manager.SensorEventsManager;
+import ru.sbt.mipt.oop.remotecontrol.*;
 import ru.sbt.mipt.oop.smarthome.JsonSmartHomeStateProvider;
 import ru.sbt.mipt.oop.smarthome.SmartHome;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
@@ -48,5 +50,28 @@ public class SmartHomeConfiguration {
     @Bean
     SensorEventHandler hallDoorHandler() {
         return new HallDoorEventHandler(smartHome());
+    }
+
+    @Bean
+    RemoteControlImpl remoteControl(){
+        RemoteControlImpl rc =new RemoteControlImpl();
+
+        rc.addCommand("A", new RcAllLightsOn(smartHome()));
+        rc.addCommand("B", new RcAllLightsOff(smartHome()));
+        rc.addCommand("C", new RcHallLightOn(smartHome()));
+        rc.addCommand("D", new RcCloseHallDoor(smartHome()));
+        rc.addCommand("1", new RcAlarmActivate(smartHome()));
+        rc.addCommand("2", new RcAlarmAlert(smartHome()));
+
+        return rc;
+    }
+
+    @Bean
+    RemoteControlRegistry remoteControlRegistry(){
+        RemoteControlRegistry rcRegistry = new RemoteControlRegistry();
+
+        rcRegistry.registerRemoteControl(remoteControl(), "rc001");
+
+        return rcRegistry;
     }
 }
