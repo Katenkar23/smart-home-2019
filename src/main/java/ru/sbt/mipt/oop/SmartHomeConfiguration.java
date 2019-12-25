@@ -28,7 +28,7 @@ public class SmartHomeConfiguration {
     @Bean
     SensorEventsManager sensorEventsManager(Collection<SensorEventHandler> handlers) {
         SensorEventsManager seManager = new SensorEventsManager();
-        seManager.registerEventHandler(new CCEventHandlerAdapter(handlers));
+        seManager.registerEventHandler(new CCEventHandlerAdapter(handlers, alarmSystem()));
         return seManager;
     }
 

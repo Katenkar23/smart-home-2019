@@ -3,6 +3,7 @@ package ru.sbt.mipt.oop.event.handlers;
 import ru.sbt.mipt.oop.event.SensorEvent;
 import ru.sbt.mipt.oop.event.manager.CCSensorEvent;
 import ru.sbt.mipt.oop.event.manager.EventHandler;
+import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
 
 import java.util.Collection;
 
@@ -10,10 +11,10 @@ import static ru.sbt.mipt.oop.event.SensorEventType.*;
 
 public class CCEventHandlerAdapter implements EventHandler {
 
-    private final Collection<SensorEventHandler> handlers;
+    private final AlarmSystemDecorator decorator;
 
-    public CCEventHandlerAdapter(Collection<SensorEventHandler> handlers) {
-        this.handlers = handlers;
+    public CCEventHandlerAdapter(Collection<SensorEventHandler> handlers, AlarmSystem alarm) {
+        decorator = new AlarmSystemDecorator(handlers, alarm);
     }
 
     @Override
@@ -21,8 +22,7 @@ public class CCEventHandlerAdapter implements EventHandler {
         SensorEvent sensorEvent = adaptSensorEvent(event);
 
         if (sensorEvent != null) {
-            for (SensorEventHandler handler : handlers)
-                handler.handle(sensorEvent);
+            decorator.handle(sensorEvent);
         }
     }
 

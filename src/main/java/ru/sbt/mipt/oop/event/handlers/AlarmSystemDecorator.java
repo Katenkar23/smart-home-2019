@@ -6,15 +6,15 @@ import ru.sbt.mipt.oop.smarthome.alarm.AlarmAlert;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmDeactivated;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
 
-import java.util.List;
+import java.util.Collection;
 
 import static ru.sbt.mipt.oop.event.SensorEventType.ALARM_DEACTIVATE;
 
 public class AlarmSystemDecorator implements SensorEventHandler {
-    private final List<SensorEventHandler> delegates;
+    private final Collection<SensorEventHandler> delegates;
     private final AlarmSystem alarm;
 
-    public AlarmSystemDecorator(List<SensorEventHandler> delegates, AlarmSystem alarm) {
+    public AlarmSystemDecorator(Collection<SensorEventHandler> delegates, AlarmSystem alarm) {
         this.delegates = delegates;
         this.alarm = alarm;
     }
