@@ -56,6 +56,7 @@ class AlarmSystemEventHandlerTest {
         assertTrue(alarm.getAlarmState() instanceof AlarmDeactivated);
     }
 
+/*
     @Test
     public void testWorkDecorator() {
         SensorEvent event = new SensorEvent(DOOR_CLOSED, alarm.getId());
@@ -69,4 +70,5 @@ class AlarmSystemEventHandlerTest {
 
         assertTrue(alarm.getAlarmState() instanceof AlarmAlert);
     }
+*/
 }
