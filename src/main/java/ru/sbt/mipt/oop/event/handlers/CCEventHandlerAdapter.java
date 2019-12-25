@@ -11,9 +11,11 @@ import java.util.Collection;
 public class CCEventHandlerAdapter implements EventHandler {
 
     private final AlarmSystemDecorator decorator;
+    private final EventTypeChooser chooser;
 
-    public CCEventHandlerAdapter(Collection<SensorEventHandler> handlers, AlarmSystem alarm) {
+    public CCEventHandlerAdapter(Collection<SensorEventHandler> handlers, EventTypeChooser chooser, AlarmSystem alarm) {
         decorator = new AlarmSystemDecorator(handlers, alarm);
+        this.chooser = chooser;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class CCEventHandlerAdapter implements EventHandler {
     }
 
     private SensorEvent adaptSensorEvent(CCSensorEvent event) {
-        return new LightOnTypeChooser(new LightOffTypeChooser(new DoorOpenTypeChooser(new DoorClosedTypeChooser(new EmptyTypeChooser())))).adaptEvent(event);
+        return chooser.adaptEvent(event);
     }
 
 }

@@ -3,6 +3,7 @@ package ru.sbt.mipt.oop;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rc.RemoteControlRegistry;
+import ru.sbt.mipt.oop.event.eventtypechooser.*;
 import ru.sbt.mipt.oop.event.handlers.*;
 import ru.sbt.mipt.oop.event.manager.SensorEventsManager;
 import ru.sbt.mipt.oop.remotecontrol.*;
@@ -28,7 +29,7 @@ public class SmartHomeConfiguration {
     @Bean
     SensorEventsManager sensorEventsManager(Collection<SensorEventHandler> handlers) {
         SensorEventsManager seManager = new SensorEventsManager();
-        seManager.registerEventHandler(new CCEventHandlerAdapter(handlers, alarmSystem()));
+        seManager.registerEventHandler(new CCEventHandlerAdapter(handlers, lightOnTypeChooser(), alarmSystem()));
         return seManager;
     }
 
@@ -73,5 +74,30 @@ public class SmartHomeConfiguration {
         rcRegistry.registerRemoteControl(remoteControl(), "rc001");
 
         return rcRegistry;
+    }
+
+    @Bean
+    EmptyTypeChooser emptyTypeChooser() {
+        return new EmptyTypeChooser();
+    }
+
+    @Bean
+    DoorClosedTypeChooser doorClosedTypeChooser() {
+        return new DoorClosedTypeChooser(emptyTypeChooser());
+    }
+
+    @Bean
+    DoorOpenTypeChooser doorOpenTypeChooser() {
+        return new DoorOpenTypeChooser(doorClosedTypeChooser());
+    }
+
+    @Bean
+    LightOffTypeChooser lightOffTypeChooser() {
+        return new LightOffTypeChooser(doorOpenTypeChooser());
+    }
+
+    @Bean
+    LightOnTypeChooser lightOnTypeChooser() {
+        return new LightOnTypeChooser(lightOffTypeChooser());
     }
 }
