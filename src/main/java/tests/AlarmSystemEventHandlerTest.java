@@ -14,6 +14,7 @@ import ru.sbt.mipt.oop.smarthome.alarm.AlarmDeactivated;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static ru.sbt.mipt.oop.event.SensorEventType.*;
@@ -59,7 +60,9 @@ class AlarmSystemEventHandlerTest {
     public void testWorkDecorator() {
         SensorEvent event = new SensorEvent(DOOR_CLOSED, alarm.getId());
 
-        SensorEventHandler doorHandler = new AlarmSystemDecorator(new Setup(smartHome).getHandlers(), alarm);
+
+
+        SensorEventHandler doorHandler = new AlarmSystemDecorator((Collection<SensorEventHandler>) (new ArrayList<SensorEventHandler>().add(new DoorEventHandler(smartHome))), alarm);
 
         alarm.activate(ALARM_ACTIVATE.getCode());
         doorHandler.handle(event);
