@@ -3,7 +3,6 @@ package tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.sbt.mipt.oop.event.SensorEvent;
-import ru.sbt.mipt.oop.event.SensorEventType;
 import ru.sbt.mipt.oop.event.handlers.AlarmSystemDecorator;
 import ru.sbt.mipt.oop.event.handlers.AlarmSystemEventHandler;
 import ru.sbt.mipt.oop.event.handlers.DoorEventHandler;
@@ -13,6 +12,8 @@ import ru.sbt.mipt.oop.smarthome.alarm.AlarmActivated;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmAlert;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmDeactivated;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static ru.sbt.mipt.oop.event.SensorEventType.*;
@@ -58,7 +59,7 @@ class AlarmSystemEventHandlerTest {
     public void testWorkDecorator() {
         SensorEvent event = new SensorEvent(DOOR_CLOSED, alarm.getId());
 
-        SensorEventHandler doorHandler = new AlarmSystemDecorator(new DoorEventHandler(smartHome), alarm);
+        SensorEventHandler doorHandler = new AlarmSystemDecorator(new Setup(smartHome).getHandlers(), alarm);
 
         alarm.activate(ALARM_ACTIVATE.getCode());
         doorHandler.handle(event);
