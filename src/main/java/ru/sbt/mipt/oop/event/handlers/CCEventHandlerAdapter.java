@@ -4,11 +4,9 @@ import ru.sbt.mipt.oop.event.SensorEvent;
 import ru.sbt.mipt.oop.event.manager.CCSensorEvent;
 import ru.sbt.mipt.oop.event.manager.EventHandler;
 import ru.sbt.mipt.oop.smarthome.alarm.AlarmSystem;
-import ru.sbt.mipt.oop.event.adapt.*;
+import ru.sbt.mipt.oop.event.eventtypechooser.*;
 
 import java.util.Collection;
-
-import static ru.sbt.mipt.oop.event.SensorEventType.*;
 
 public class CCEventHandlerAdapter implements EventHandler {
 

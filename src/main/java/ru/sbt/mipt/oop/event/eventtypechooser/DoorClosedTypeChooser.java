@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop.event.adapt;
+package ru.sbt.mipt.oop.event.eventtypechooser;
 
 import ru.sbt.mipt.oop.event.SensorEvent;
 import ru.sbt.mipt.oop.event.manager.CCSensorEvent;
